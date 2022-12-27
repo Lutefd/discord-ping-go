@@ -26,7 +26,7 @@ func Start() {
 	BotID = user.ID
 
 	goBot.AddHandler(messageHandler)
-	goBot.Identify.Intents = discordgo.IntentsGuildMessages | discordgo.IntentsGuilds | discordgo.IntentsGuildMembers
+	goBot.Identify.Intents = discordgo.IntentsGuildMessages
 
 	err = goBot.Open()
 
