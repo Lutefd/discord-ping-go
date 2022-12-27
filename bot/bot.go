@@ -26,6 +26,7 @@ func Start() {
 	BotID = user.ID
 
 	goBot.AddHandler(messageHandler)
+	goBot.Identify.Intents = discordgo.IntentsGuildMessages | discordgo.IntentsGuilds | discordgo.IntentsGuildMembers
 
 	err = goBot.Open()
 
@@ -42,6 +43,6 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	if m.Content == "ping" {
-		_, _ = s.ChannelMessageSend(m.ChannelID, "@${m.Author.Username} Pong!")
+		_, _ = s.ChannelMessageSend(m.ChannelID, "@"+m.Author.Username+" Pong!")
 	}
 }
