@@ -35,3 +35,13 @@ func Start() {
 	}
 	fmt.Println("Bot iniciado com sucesso!")
 }
+
+func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
+	if m.Author.ID == BotID {
+		return
+	}
+
+	if m.Content == "ping" {
+		_, _ = s.ChannelMessageSend(m.ChannelID, "@${m.Author.Username} Pong!")
+	}
+}
