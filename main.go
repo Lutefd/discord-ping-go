@@ -1,12 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/Lutefd/discord-ping-go/config"
+)
 
 func main() {
 	err := config.ReadConfig()
 
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println(err.Error())
 		return
 	}
 	bot.Start()
