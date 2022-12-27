@@ -26,4 +26,12 @@ func Start() {
 	BotID = user.ID
 
 	goBot.AddHandler(messageHandler)
+
+	err = goBot.Open()
+
+	if err != nil {
+		fmt.Println("Erro ao iniciar a conexão: ", err.Error())
+		return
+	}
+	fmt.Println("Bot iniciado com sucesso!")
 }
