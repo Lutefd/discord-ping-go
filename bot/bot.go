@@ -17,4 +17,13 @@ func Start() {
 		fmt.Println("Erro ao iniciar o bot: ", err.Error())
 		return
 	}
+	user, err := goBot.User("@me")
+
+	if err != nil {
+		fmt.Println("Erro ao obter o usuário: ", err.Error())
+	}
+
+	BotID = user.ID
+
+	goBot.AddHandler(messageHandler)
 }
