@@ -27,6 +27,8 @@ func Start() {
 
 	goBot.AddHandler(messageHandler)
 
+	goBot.Identify.Intents = discordgo.IntentsGuildMessages
+
 	err = goBot.Open()
 
 	if err != nil {
